@@ -56,7 +56,7 @@ jobs:
           cd generated        
           mkdir junit
           mkdir kibana
-          $module = ${{ inputs.module_name }} -replace '^\d+. ', ''
+          $module = "${{ inputs.module_name }}" -replace '^\d+. ', ''
           cd $module
           python -m tox -c tox-system_tests.ini        
         shell: powershell
