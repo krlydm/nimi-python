@@ -52,8 +52,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2    
-        with:
-          clean: false
       - name: run system tests
         run: |
           cd generated        
