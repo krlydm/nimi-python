@@ -52,7 +52,10 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2    
-      - run: |
+        with:
+          clean: false
+      - name: run system tests
+        run: |
           cd generated        
           mkdir junit
           mkdir kibana
