@@ -12,13 +12,6 @@ jobs:
           [
             "nidigital",
             "nitclk",
-            "nifgen",
-            "nidcpower",
-            "nidmm",
-            "niscope",
-            "nimodinst",
-            "nise",
-            "niswitch",
           ]
     steps:
       - name: system_tests_win32
