@@ -39,22 +39,27 @@ jobs:
       matrix:
         module_name:
           [
-            "nidigital",
-            "nitclk",
-            "nifgen",
-            "nidcpower",
-            "nidmm",
-            "niscope",
-            "nimodinst",
-            "nise",
-            "niswitch",
+            "1. nidigital",
+            "2. nitclk",
+            "3. nifgen",
+            "4. nidcpower",
+            "5. nidmm",
+            "6. niscope",
+            "7. nimodinst",
+            "8. nise",
+            "9. niswitch",
           ]
     steps:
-      - name: system_tests_win32
-        uses: SukruthGrandhiNI/githubactions@master
-        with:
-          module_name: ${{ matrix.module_name }}
-
+      - name: checkout repository
+        uses: actions/checkout@v2    
+      - run: |
+          cd generated        
+          mkdir junit
+          mkdir kibana
+          $module = ${{ inputs.module_name }} -replace '^\d+. ', ''
+          cd $module
+          python -m tox -c tox-system_tests.ini        
+        shell: powershell
 
   stop-runner:
     name: Stop self-hosted EC2 runner
