@@ -27,8 +27,8 @@ jobs:
           ec2-base-os: win-x64
           ec2-launch-template: rdss-nimibot-windows-python32
           number-of-runners: 2
-          number-of-instances: 3
-          ec2-instance-type: t3.large
+          number-of-instances: 2
+          ec2-instance-type: t3.xlarge
 
   do-the-job:
     name: system_tests
