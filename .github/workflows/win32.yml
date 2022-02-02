@@ -31,7 +31,7 @@ jobs:
           ec2-instance-type: t3a.xlarge
 
   do-the-job1:
-    name: system_tests
+    name: system_tests_long
     needs: start-runner # required to start the main job when the runner is ready
     runs-on: ${{ needs.start-runner.outputs.label }} # run the job on the newly created runner
     timeout-minutes: 40
@@ -55,7 +55,7 @@ jobs:
         shell: powershell
         
   do-the-job2:
-    name: system_tests
+    name: system_tests_fast
     needs: start-runner # required to start the main job when the runner is ready
     runs-on: ${{ needs.start-runner.outputs.label }} # run the job on the newly created runner
     timeout-minutes: 40
