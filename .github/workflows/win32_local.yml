@@ -8,6 +8,29 @@ jobs:
   do-the-job:
     name: system_tests
     runs-on: example
+    timeout-minutes: 40
+    strategy:
+     matrix:
+       module_name:
+         [
+           "nidigital",
+           "nitclk",
+           "nifgen",
+           "nidcpower",
+           "nidmm",
+           "niscope",
+           "nimodinst",
+           "nise",
+           "niswitch",
+         ]
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v2    
+     - name: checkout repository
+       uses: actions/checkout@v2    
+     - name: run system tests
+       run: |
+         cd generated        
+         mkdir junit
+         mkdir kibana
+         cd ${{ matrix.module_name }}
+         python -m tox -c tox-system_tests.ini        
+       shell: powershell
