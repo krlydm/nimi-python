@@ -7,7 +7,7 @@ on:
 jobs:
   do-the-job:
     name: system_tests
-    runs-on: test
+    runs-on: example
     timeout-minutes: 40
     strategy:
       matrix:
