@@ -1,8 +1,10 @@
 name: nimibot_win_32_local
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+   pull_request:
+     branches:
+       - master
+       - releases/*
 
 jobs:
   do-the-job1:
