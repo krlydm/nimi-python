@@ -34,7 +34,7 @@ jobs:
         
   do-the-job2:
     name: system_tests_fast
-    runs-on: example
+    runs-on: test-rdss-nimibot-win-10-py32
     timeout-minutes: 40
     strategy:
       matrix:
