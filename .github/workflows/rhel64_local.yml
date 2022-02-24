@@ -3,10 +3,6 @@ name: nimibot_rhel_64_local
 on: 
    # Allows you to run this workflow manually from the Actions tab
    workflow_dispatch:
-   pull_request:
-     branches:
-       - master
-       - releases/*
 
 jobs:
   do-the-job1:
