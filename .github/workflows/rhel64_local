@@ -1,0 +1,37 @@
+name: nimibot_rhel_64_local
+
+on: 
+   # Allows you to run this workflow manually from the Actions tab
+   workflow_dispatch:
+   pull_request:
+     branches:
+       - master
+       - releases/*
+
+jobs:
+  do-the-job1:
+    name: system_tests_long
+    runs-on: 
+    - self-hosted
+    - linux
+    - x64
+    - rdss-nimibot-rhel-83-py32
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        module_name:
+          [
+            "nidmm",
+            "niswitch",
+          ]
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2    
+      - run: |
+         source /etc/bashrc
+         cd generated
+         mkdir junit
+         mkdir kibana
+         cd ${{ inputs.module_name }}
+         python -m tox -c tox-system_tests.ini
+       shell: bash
