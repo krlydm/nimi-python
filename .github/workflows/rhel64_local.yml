@@ -29,6 +29,6 @@ jobs:
          cd generated
          mkdir junit
          mkdir kibana
-         cd ${{ inputs.module_name }}
+         cd ${{ matrix.module_name }}
          python -m tox -c tox-system_tests.ini
         shell: bash
